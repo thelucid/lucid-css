@@ -1,0 +1,13 @@
+$palettes: palette-defaults((
+  required: (
+    foreground: palette(swatches, negative)
+  )
+));
+
+.c-required {
+  // Firefox and Chrome.
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+  color: palette(required, foreground);
+}

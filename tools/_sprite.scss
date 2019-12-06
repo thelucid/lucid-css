@@ -1,0 +1,45 @@
+// Creates sprited background image. By default an SVG is
+// expected with a fallback to PNG for non hidpi displays,
+// as rendering is generally better with pixel images in
+// that case.
+//
+// Example:
+//   sprite('sprites');
+//   sprite('sprites', 123, 456);
+//
+@mixin sprite(
+  $name, $x: null, $y: null,
+  $width: null, $height: null,
+  $svg: true) {
+
+  @if not(function-exists(image-url)) {
+    @error "This mixin required an image-url function implementation";
+  }
+
+  // See: http://css-tricks.com/svg-fallbacks/
+  background-image: image-url("#{$name}.png");
+  @if $svg {
+    // Only use svg for hi-dpi displays, Chrome and FF render them badly.
+    @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) { 
+      background-image: linear-gradient(transparent, transparent),
+                        image-url("#{$name}.svg");
+    }
+  }
+  background-repeat: no-repeat;
+  @if width or height {
+    background-size: $width $height;
+  }
+  @if $x != null and $y != null {
+    @include sprite-position($x, $y);
+  }
+}
+
+// Positions an already configured sprite sheet at the
+// supplied coordinates.
+//
+// Example:
+//   sprite-position('sprites', 10, 20);
+//
+@mixin sprite-position($x, $y) {
+  background-position: (-$x + px) (-$y + px);
+}

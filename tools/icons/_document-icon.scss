@@ -1,0 +1,77 @@
+@mixin document-icon(
+  $position: relative,
+  $radius: $global-radius,
+  $earmark: 12px,
+  $thickness: 1px,
+  $width: 44px,
+  $height: 60px,
+  $foreground: #999,
+  $background: #fff,
+  // Will use foreground if not set.
+  $border: null,
+  $mask: #fff,
+  $scale: 1.2,
+  $time: .25s,
+  $shadow: rgba(#000, .1),
+  // Allows parent selector to be supplied that activates hover.
+  $parent: null
+) {
+  display: block;
+  position: $position;
+  overflow: hidden;
+  text-align: center;
+  color: $foreground;
+  background: $background;
+  width: $width;
+  height: $height;
+  border-radius: $radius 0 $radius $radius;
+  @if ($border) {
+    box-shadow: inset 0 0 0 $thickness $border;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $earmark;
+    height: $earmark;
+    background: $background;
+    @if ($border) {
+      border-left: $thickness solid $border;
+      border-bottom: $thickness solid $border;
+    }
+    border-bottom-left-radius: $radius;
+    box-shadow: 0 $thickness $shadow;
+    transition: width, $time ease,
+                height, $time ease,
+                box-shadow, $time ease;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: $earmark * 2;
+    height: $earmark * 2;
+    background: $mask;
+    margin-left: - $earmark - $thickness;
+    @if ($border) {
+      border-left: $thickness solid $border;
+    }
+    // The Z fixes artifacts: https://stackoverflow.com/questions/38962051
+    transform: translateZ(1px) rotate(-45deg);
+    transform-origin: top left;
+    transition: margin-left $time ease;
+  }
+ 
+  #{if($parent == null, '&:hover', "#{$parent}:hover &")} {
+    &:before {
+      width: $earmark * $scale;
+      height: $earmark * $scale;
+      box-shadow: 0 $thickness * $scale $shadow;
+    }
+    &:after {
+      margin-left: ($earmark * - $scale) - $thickness;
+    }
+  }
+}

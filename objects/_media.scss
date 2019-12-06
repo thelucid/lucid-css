@@ -1,0 +1,70 @@
+.o-media {
+  display: block;
+  @include clearfix();
+}
+.o-media__image {
+  float: left;
+  @include rem(margin-right, $global-spacing);
+}
+.o-media__body {
+  overflow: hidden;
+  display: block;
+}
+.o-media--flush {
+  > .o-media__image {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.o-media--tiny {
+  > .o-media__image {
+    @include rem(margin-right, $global-spacing--tiny);
+  }
+  &.o-media--reverse {
+    > .o-media__image {
+      margin-right: 0;
+      @include rem(margin-left, $global-spacing--tiny);
+    }
+  }
+}
+.o-media--small {
+  > .o-media__image {
+    @include rem(margin-right, $global-spacing--small);
+  }
+  &.o-media--reverse {
+    > .o-media__image {
+      margin-right: 0;
+      @include rem(margin-left, $global-spacing--small);
+    }
+  }
+}
+.o-media--large {
+  > .o-media__image {
+    @include rem(margin-right, $global-spacing--large);
+  }
+  &.o-media--reverse {
+    > .o-media__image {
+      margin-right: 0;
+      @include rem(margin-left, $global-spacing--large);
+    }
+  }
+}
+.o-media--huge {
+  > .o-media__image {
+    @include rem(margin-right, $global-spacing--huge);
+  }
+  &.o-media--reverse {
+    > .o-media__image {
+      margin-right: 0;
+      @include rem(margin-left, $global-spacing--huge);
+    }
+  }
+}
+
+.o-media--reverse {
+  > .o-media__image {
+    float: right;
+    margin-right: 0;
+    @include rem(margin-left, $global-spacing);
+  }
+}

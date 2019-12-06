@@ -1,0 +1,20 @@
+$palettes: palette-defaults((
+  hint: (
+    foreground: palette(foreground, light)
+  )
+));
+
+.c-hint {
+  display: block;
+  clear: left;
+  color: palette(hint, foreground);
+  position: relative;
+  // Shift to top of rhythm row.
+  top: -.3em;
+  @include font-size(tiny);
+  
+  .c-checkbox + & {
+    @include rem(margin-top, $global-spacing--small);
+    @include rem(padding-left, $global-spacing + $global-spacing--small);
+  }
+}

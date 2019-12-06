@@ -1,0 +1,12 @@
+$palettes: palette-defaults((
+  error: (
+    foreground: palette(swatches, negative)
+  )
+));
+
+.c-error {
+  color: palette(error, foreground);
+  @include font-size(small);
+  @include rem(padding-top, $global-spacing--tiny);
+  @include rem(padding-bottom, $global-spacing--tiny);
+}

@@ -1,0 +1,29 @@
+$palettes: palette-defaults((
+  label: (
+    foreground: palette(foreground)
+  )
+));
+
+$sizes: size-defaults((
+  label: (
+    font-size: small,
+    font-weight: $global-font-weight--regular,
+    vertical-shift: -.3em
+  )
+));
+
+.c-label {
+  display: inline-block;
+  position: relative;
+  // Shift to top of rhythm row.
+  top: size(label, vertical-shift);  
+  color: palette(label, foreground);
+  font-weight: size(label, font-weight);
+  @include font-size(size(label, font-size));
+}
+
+// For when it's next to an input--auto.
+.c-label--adjacent {
+  top: 0;
+  @include rem(padding-right, $global-spacing--small)
+}

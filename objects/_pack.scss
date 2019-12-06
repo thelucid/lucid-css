@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.o-pack {
+  width: 100%;
+  display: table;
+  // Equal widths.
+  table-layout: fixed;
+}
+.o-pack__item {
+  display: table-cell;
+  vertical-align: top;
+  .o-pack--middle > & {
+    vertical-align: middle;
+  }
+  .o-pack--bottom > & {
+    vertical-align: bottom;
+  }
+}
+.o-pack__item--grow {
+  width: 100%;
+}
+.o-pack--tiny {
+  @include rem(border-spacing, $global-spacing--tiny);
+}
+.o-pack--small {
+  @include rem(border-spacing, $global-spacing--small);
+}
+.o-pack--default {
+  @include rem(border-spacing, $global-spacing);
+}
+.o-pack--large {
+  @include rem(border-spacing, $global-spacing--large);
+}
+.o-pack--huge {
+  @include rem(border-spacing, $global-spacing--huge);
+}
+.o-pack--auto {
+  table-layout: auto;
+}
+.o-pack--reverse {
+  direction: rtl;
+
+  > .o-pack__item {
+    direction: ltr;
+  }
+}

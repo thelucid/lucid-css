@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+$container-width: 1200 !default;
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  @include rem(padding-left, $global-spacing);
+  @include rem(padding-right, $global-spacing);
+  @include rem(max-width, $container-width);
+}
+
+.o-container--grow {
+  max-width: none;
+}

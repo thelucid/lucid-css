@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+$global-spacing: rhythm(1) !default;
+
+$global-spacing--tiny:  round($global-spacing * 0.25) !default;
+$global-spacing--small: round($global-spacing * 0.5)  !default;
+$global-spacing--large: round($global-spacing * 2)    !default;
+$global-spacing--huge:  round($global-spacing * 4)    !default;

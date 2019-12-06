@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+// Variable used to define size maps.
+$sizes: () !default;
+
+// Retrieve a value from a pallete.
+//
+// Example:
+//   $sizes: (
+//     text: (
+//       base: 16px,
+//       big: 20px
+//     )
+//   );
+//
+//   color: size(text);
+//   color: size(text, big);
+//
+// Output:
+//   color: 16px;
+//   color: 20px;
+//
+@function size($path...) {
+  @return map-fetch($sizes, $path...);
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   $sizes: (
+//     heading: (
+//       base: 30px,
+//       big: 40px
+//     )
+//   );
+//
+//   $sizes: size-defaults((
+//     heading: (
+//       huge: 50px
+//     ),
+//     subheading: (
+//       base: 20px
+//     )
+//   ));
+//
+// Result:
+//   $sizes: (
+//     heading: (
+//       base: 30px,
+//       big: 40px,
+//       huge: 50px
+//     ),
+//     background: (
+//       base: 20px
+//     )
+//   );
+//
+@function size-defaults($map) {
+  @return map-defaults($sizes, $map);
+}

@@ -1,0 +1,92 @@
+$palettes: palette-defaults((
+  input: (
+    foreground: palette(foreground),
+    background: palette(panel),
+    border: palette(foreground, tint),
+    placeholder: palette(foreground, tint),
+    focus: (
+      border: tint(palette(accent), 60%),
+      outline: rgba(palette(accent), .1)
+    ),
+    readonly: (
+      foreground: palette(foreground),
+      background: palette(panel, tint),
+      border: transparent
+    )
+  )
+));
+
+@if $inverted-enabled {
+  $palettes: palette-defaults((
+    input: (
+      inverted: (
+        foreground: palette(inverted, foreground),
+        background: palette(inverted, panel),
+        border: palette(inverted, foreground, tint),
+        placeholder: palette(inverted, foreground, tint),
+        focus: (
+          border: rgba(palette(accent), .4),
+          outline: rgba(palette(accent), .2)
+        ),
+        readonly: (
+          foreground: palette(inverted, foreground),
+          background: palette(inverted, panel, tint),
+          border: transparent
+        )
+      )
+    )
+  ));
+}
+
+$sizes: size-defaults((
+  input: (
+    font-size: small,
+    line-height: 1,
+    horizontal-padding: $global-spacing--small,
+    vertical-padding: $global-spacing--small
+  )
+));
+
+.c-input {
+  width: 100%;
+  color: palette(input, foreground);
+  background: palette(input, background);
+  border-radius: $global-radius;
+  box-shadow: inset 0 0 0 1px palette(input, border);
+  @include font-size(size(input, font-size), size(input, line-height));
+  @include rem(padding, size(input, vertical-padding) size(input, horizontal-padding));
+  @include placeholder(palette(input, placeholder));
+  
+  // Outline doesn't respect radius
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0 0 0 1px palette(input, focus, border),
+                0 0 0 3px palette(input, focus, outline);
+    @include inverted {
+      box-shadow: inset 0 0 0 1px palette(input, inverted, focus, border),
+                  0 0 0 3px palette(input, inverted, focus, outline);
+    }
+  }
+  
+  @include inverted {
+    color: palette(input, inverted, foreground);
+    background: palette(input, inverted, background);
+    box-shadow: inset 0 0 0 1px palette(input, inverted, border);
+    @include placeholder(palette(input, inverted, placeholder));
+  }
+}
+.c-input--readonly {
+  color: palette(input, readonly, foreground);
+  background: palette(input, readonly, background);
+  box-shadow: inset 0 0 0 1px palette(input, readonly, border);
+  @include rem(border-radius, $global-spacing--small);
+  
+  @include inverted {
+    color: palette(input, inverted, readonly, foreground);
+    background: palette(input, inverted, readonly, background);
+    box-shadow: inset 0 0 0 1px palette(input, inverted, readonly, border);
+  }
+}
+.c-input--auto {
+  width: auto;
+}

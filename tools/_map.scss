@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+// Retrieve a value from a nested map. Note that 'base' is
+// a special key that can be omitted at the end of a path.
+//
+// Example:
+//   $colors: (
+//     text: (
+//       base: #555,
+//       light: #888
+//     )
+//   );
+//
+//   color: map-fetch($colors, text);
+//   color: map-fetch($colors, text, light);
+//
+// Output:
+//   color: #555555;
+//   color: #888888;
+//
+@function map-fetch($map, $path...) {
+  $val: $map;
+  @each $segment in $path {
+    @if map-has-key($val, $segment) {
+      $val: map-get($val, $segment);
+    } @else {
+      @error "Can't find #{$path}";
+    }
+  }
+  @return if(type-of($val) == map, map-get($val, base), $val);
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   $colors: (
+//     foreground: (
+//       base: #555,
+//       light: #888
+//     )
+//   );
+//
+//   $colors: map-defaults($colors, (
+//     foreground: (
+//       dark: #333
+//     ),
+//     background: (
+//       base: #eee
+//     )
+//   ));
+//
+// Result:
+//   colors: (
+//     foreground: (
+//       base: #555,
+//       light: #888,
+//       dark: #333
+//     ),
+//     background: (
+//       base: #eee
+//     )
+//   );
+//
+@function map-defaults($defaults, $map) {
+  $result: $defaults;
+  @each $key, $val in $map {
+    @if type-of(map-get($result, $key)) == map and type-of($val) == map {
+      $result: map-merge($result, (
+        $key: map-defaults(map-get($result, $key), $val)
+      ));        
+    } @elseif not(map-has-key($result, $key)) {
+      $result: map-merge($result, ($key: $val));
+    }
+  }
+  @return $result;
+}

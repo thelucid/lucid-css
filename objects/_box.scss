@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.o-box {
+  display: block;
+  @include rem(padding, $global-spacing);
+}
+.o-box--flush {
+  padding: 0;
+}
+.o-box--tiny {
+  @include rem(padding, $global-spacing--tiny);
+}
+.o-box--small {
+  @include rem(padding, $global-spacing--small);
+}
+.o-box--large {
+  @include rem(padding, $global-spacing--large);
+}
+.o-box--huge {
+  @include rem(padding, $global-spacing--huge);
+}

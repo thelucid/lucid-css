@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+$ratios: (
+  "2\\:1"   : (2:1),
+  "4\\:3"   : (4:3),
+  "16\\:9"  : (16:9),
+) !default;
+
+.o-ratio {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+}
+.o-ratio__content {
+  position: absolute;
+  top:    0;
+  left:   0;
+  width: 100%;
+  height: 100%;
+}
+
+@each $name, $ratio in $ratios {
+  @each $antecedent, $consequent in $ratio {
+    .o-ratio--#{$name}:before {
+      padding-bottom: ($consequent/$antecedent) * 100%;
+    }
+  }
+}

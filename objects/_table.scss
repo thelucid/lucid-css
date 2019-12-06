@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.o-table {
+  width: 100%;
+}
+.o-table--fixed {
+  table-layout: fixed;
+}
+.o-table--tiny {
+  th, td {
+    @include rem(padding, $global-spacing--tiny);
+  }
+}
+.o-table--medium {
+  th, td {
+    @include rem(padding, $global-spacing);
+  }
+}
+.o-table--large {
+  th, td {
+    @include rem(padding, $global-spacing--large);
+  }
+}
+.o-table--huge {
+  th, td {
+    @include rem(padding, $global-spacing--huge);
+  }
+}
+.o-table.is-empty {
+  display: none;
+}
+.o-table__cell {
+  text-align: left;
+  @include rem(padding, $global-spacing--small);
+}
+.o-table__cell--middle {
+  vertical-align: middle;
+}
+.o-table__cell--bottom {
+  vertical-align: bottom;
+}
+.o-table__cell--nowrap {
+  white-space: nowrap;
+}
+.o-table__cell--integer,
+.o-table__cell--currency {
+  text-align: right;
+}
+.o-table__cell--boolean {
+  text-align: center;
+}
+// TODO: Should probably be in app.
+.o-table__cell--image:not(.o-table__cell--header) {
+  @include rem(padding, $global-spacing--tiny, $important: true);
+  @include rem(min-width, $global-spacing * 4);
+  @include rem(width, $global-spacing * 4);
+}
+.o-table__cell--center {
+  text-align: center;
+}
+.o-table__cell--grow {
+  width: 100%;
+}

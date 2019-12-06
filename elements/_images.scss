@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+img {
+  display: block;
+  max-width: 100%;
+  // For alt text.
+  font-style: italic;
+}
+img[width], img[height] {
+  max-width: none;
+}

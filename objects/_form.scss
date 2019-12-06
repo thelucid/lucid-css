@@ -1,0 +1,71 @@
+.o-form__fields,
+.o-form__actions {
+  font-size: 0;
+  @include rem(margin-top, - $global-spacing);
+  @include rem(margin-left, - $global-spacing);
+}
+.o-form__actions {
+  text-align: right;
+  vertical-align: middle;
+  @include rem(padding-top, $global-spacing);
+  .o-form > & {
+    @include rem(padding-top, $global-spacing + $global-spacing);
+  }
+  .o-form__field > &:first-child {
+    padding-top: 0;
+  }
+}
+.o-form__field,
+.o-form__action {
+  display: inline-block;
+  @include font-size(base);
+  @include rem(margin-top, $global-spacing);
+  @include rem(padding-left, $global-spacing);
+}
+.o-form__field {
+  vertical-align: top;
+  width: 100%;
+  &.is-removed {
+    display: none;
+  }
+}
+.o-form__action--grow {
+  width: 100%;
+}
+.o-form__fieldset {
+  @include rem(margin-bottom, $global-spacing--large);
+  .o-form__field > & {
+    margin-bottom: 0;
+  }
+}
+.o-form__fields--auto {
+  > .o-form__field {
+    width: auto;
+    padding-left: 0;
+    @include rem(margin-left, $global-spacing);
+  }
+}
+.o-form__fields--right {
+  text-align: right;
+}
+.o-form__fields--small {
+  @include rem(margin-top, - $global-spacing--small);
+  @include rem(margin-left, - $global-spacing--small);
+  > .o-form__field {
+    @include rem(margin-top, $global-spacing--small);
+    @include rem(padding-left, $global-spacing--small);
+  }
+}
+.o-form__actions--small {
+  @include rem(margin-top, - $global-spacing--small);
+  @include rem(margin-left, - $global-spacing--small);
+  > .o-form__action {
+    @include rem(margin-top, $global-spacing--small);
+    @include rem(padding-left, $global-spacing--small);
+  }
+}
+.o-form__fields {
+  &.is-empty {
+    display: none;
+  }
+}

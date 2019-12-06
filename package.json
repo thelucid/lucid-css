@@ -1,0 +1,15 @@
+{
+  "name": "lucid-css",
+  "author": {
+    "name": "Jamie Hill",
+    "email": "jamie@thelucid.com"
+  },
+  "description": "A reusable set of SCSS classes, mixins and functions. Heavily inspired by inuitcss.",
+  "style": "_lucid.scss",
+  "license": "MIT",
+  "homepage": "http://thelucid.com",
+  "version": "1.0.0",
+  "dependencies": {
+    "bourbon": "^5.0.1"
+  }
+}

@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+$debug-grid: (
+  baseline: ($rhythm-size * 1px),
+  columns: $span-columns,
+  gutter: ($global-spacing * 1px),
+  width: ($container-width * 1px)
+) !default;
+
+html {
+  $baseline: map-get($debug-grid, baseline);
+  $columns: map-get($debug-grid, columns);
+  $gutter: map-get($debug-grid, gutter);
+  $width: map-get($debug-grid, width);
+  
+  position: relative;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    top: 0;
+    transition: top .25s ease;
+    height: 100%;
+    left: 50%;
+    width: calc(100% - #{$gutter});
+    transform: translate(-50%, 0);
+    max-width: calc(#{$width} - #{$gutter});
+    margin-right: $gutter;
+    
+    // TODO: Multiple gradients to avaid rounding issues.
+    background-image: linear-gradient(to right,   rgba(#e00, .2) calc(100% - #{$gutter}),
+                                                  transparent $gutter),
+							        linear-gradient(to bottom,  rgba(black, 0) $baseline - 1px,
+                                                  rgba(#e00, .8) $baseline);
+
+  	background-size: (100% / $columns) 100%, 100% $baseline;
+  	background-position: ($gutter / 2) 0;
+  }
+  &:hover:before {
+    top: -100%;
+  }
+}
+body:before {
+  background-color: rgba(#fff, .8);
+  color: #557;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-bottom-left-radius: 2px;
+  padding: 5px 10px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: top .4s ease;
+  z-index: 1001;
+
+  @each $key, $value in $responds {
+    @include respond($key) {
+      content: "#{$key} ≥ #{$value}";
+    }
+  }
+  
+  html:hover & {
+    top: -30px;
+  }
+}

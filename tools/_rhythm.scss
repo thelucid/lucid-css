@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// The detault rhythm size.
+$rhythm-size: 20 !default;
+
+// Returns a value for desired number of rows.
+//
+// Example:
+//   rhythm(2); // -> 32
+//
+@function rhythm($rows: 1) {
+  @return $rhythm-size * $rows;
+}
+
+// Outputs rem line-height for desired number of rows.
+//
+// Example:
+//   @include rhythm(2);
+//
+// Output:
+//   line-height: 40px;
+//   line-height: 2.5rem;
+//
+@mixin rhythm($rows: 1) {
+  @include rem('line-height', rhythm($rows));
+}
+
+// Outputs leader for desired number of rows.
+//
+// Example:
+//   @include leader(1);
+//
+// Output:
+//   margin-top: 20px;
+//   margin-top: 1.25rem;
+//
+@mixin leader($rows: 1) {
+  @include rem('margin-top', rhythm($rows));
+}
+
+// Outputs trailer for desired number of rows.
+//
+// Example:
+//   @include trailer(1);
+//
+// Output:
+//   margin-bottom: 20px;
+//   margin-bottom: 1.25rem;
+//
+@mixin trailer($rows: 1) {
+  @include rem('margin-bottom', rhythm($rows));
+}

@@ -1,0 +1,22 @@
+$palettes: palette-defaults((
+  piped: (
+    separator: palette(foreground, tint),
+  )
+));
+
+.o-piped {
+  display: table;
+}
+.o-piped__item {
+  display: table-cell;
+  & + & {
+    @include rem(padding-left, $global-spacing);
+    border-left: 1px solid palette(foreground, tint);
+  }
+  &:not(:first-child) {
+    @include rem(padding-left, $global-spacing--small);
+  }
+  &:not(:last-child) {
+    @include rem(padding-right, $global-spacing--small);
+  }
+}

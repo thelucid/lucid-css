@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@for $of from 1 through $span-columns {
+  @for $span from 1 through $of {
+    .u-#{$span}\/#{$of} {
+      width: span($span, $of: $of);
+    }
+  }
+}
+
+@each $respond-name, $respond-value in $responds {
+  @include respond($respond-name) {
+    @for $of from 1 through $span-columns {
+      @for $span from 1 through $of {
+        .u-#{$span}\/#{$of}\@#{$respond-name} {
+          width: span($span, $of: $of);
+        }
+      }
+    }
+  }
+}

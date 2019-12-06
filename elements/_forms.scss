@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// This gives a starting point for forms.
+input,                              
+textarea,                           
+select,                             
+button {
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: inherit;
+  border: 0;
+  margin: 0;
+  
+  // iOS needs a minimum font size of 16px to prevent zoom.
+  @include font-size(base);
+
+  &:disabled {
+    opacity: .5;
+  }
+  &:focus {
+    outline-offset: 0;
+    outline-style: solid;
+    outline-width: 3px;
+    outline-color: palette(accent, tint);
+  }
+}
+textarea {
+  display: block;
+}
+label {
+  display: inline-block;
+}
+button {
+  cursor: pointer;
+}
+
+// Search.
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
