@@ -1,12 +1,14 @@
 .o-form__fields,
 .o-form__actions {
-  font-size: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   @include rem(margin-top, - $global-spacing);
   @include rem(margin-left, - $global-spacing);
 }
 .o-form__actions {
-  text-align: right;
-  vertical-align: middle;
+  justify-content: flex-end;
+  align-items: center;
   @include rem(padding-top, $global-spacing);
   .o-form > & {
     @include rem(padding-top, $global-spacing + $global-spacing);
@@ -17,13 +19,14 @@
 }
 .o-form__field,
 .o-form__action {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   @include font-size(base);
   @include rem(margin-top, $global-spacing);
   @include rem(padding-left, $global-spacing);
 }
 .o-form__field {
-  vertical-align: top;
+  justify-content: space-between;
   width: 100%;
   &.is-removed {
     display: none;
@@ -46,7 +49,7 @@
   }
 }
 .o-form__fields--right {
-  text-align: right;
+  justify-content: flex-end;
 }
 .o-form__fields--small {
   @include rem(margin-top, - $global-spacing--small);
