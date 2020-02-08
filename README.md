@@ -49,8 +49,8 @@ A reusable set of SCSS classes, mixins and functions. Heavily inspired by inuitc
 @import "lucid-css/components/select";
 
 // = Utilities
-@import "lucid-sass/utilities/widths";
+@import "lucid-css/utilities/widths";
 
 // = Debug
-// @import "lucid-sass/generic/debug";
+// @import "lucid-css/generic/debug";
 ```
