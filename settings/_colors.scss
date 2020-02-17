@@ -1,0 +1,57 @@
+$palettes: palette-defaults((
+  foreground: (
+    base: #5e5e5e
+  ),
+  background: (
+    base: #fff
+  ),
+  panel: (
+    base: #fff
+  ),
+  accent: (
+    base: #3498db
+  ),
+  shadow: (
+    dark: rgba(black, .07),
+    base: rgba(black, .05)
+  ),
+  overlay: (
+    base: rgba(black, .9)
+  ),
+  swatches: (
+    positive: (
+      base: #2ecc71
+    ),
+    negative: (
+      base: #e74c3c
+    ),
+    neutral: (
+      base: #e67e22
+    ),
+  ),
+  inverted: (
+    background: (
+      base: #1a1a1a
+    ),
+    foreground: (
+      base: tint(black, 80%),
+      light: tint(black, 95%)
+    )
+  )
+));
+
+$palettes: palette-defaults((
+  foreground: (
+    tint: tint(palette(foreground), 75%),
+    light: #888,
+    dark: #444
+  ),
+  panel: (
+    tint: #f7f7f7
+  ),
+  accent: (
+    dark: shade(palette(accent), 20%),
+    light: tint(palette(accent), 20%),
+    tint: tint(palette(accent), 85%)
+  )
+));
