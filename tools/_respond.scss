@@ -5,7 +5,13 @@ $respond-capable: true !default;
 $respond-default-width: 960 !default;
 $respond-default-height: 800 !default;
 $respond-em-size: $rem-base or 16 !default;
-$responds: () !default;
+$responds: (
+  small:  560,
+  medium: 850,
+  large:  1100,
+  huge:   1400,
+  nav:    768
+) !default;
 
 // Simply defines a media query based on $responds map values or specified
 // values, with an interface that is purposely compatible with that of sass-mq.

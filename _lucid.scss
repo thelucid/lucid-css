@@ -1,12 +1,6 @@
 // = Vendor
 @import "bourbon/core/bourbon";
 
-// = Settings
-@import "lucid-css/settings/colors";
-@import "lucid-css/settings/config";
-@import "lucid-css/settings/globals";
-@import "lucid-css/settings/spacing";
-
 // = Tools
 @import "tools/font-size";
 @import "tools/map";
@@ -18,6 +12,11 @@
 @import "tools/sizes";
 @import "tools/span";
 @import "tools/sprite";
+
+// = Settings
+@import "lucid-css/settings/colors";
+@import "lucid-css/settings/globals";
+@import "lucid-css/settings/spacing";
 
 // Optional
 // @import "tools/image";

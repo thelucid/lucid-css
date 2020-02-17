@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 $font-sizes: (
-  base: 16
+  base: 16,
+  tiny: 14,
+  small: 16,
+  medium: modular-scale(1, 14, $golden),
+  large: modular-scale(1, 16, $golden),
+  huge: modular-scale(2, 14, $golden),
+  massive: modular-scale(2, 16, $golden)
 ) !default;
 
 // Shortcut for specifying font size on the rhythm, as well as optionally
