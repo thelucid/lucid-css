@@ -12,10 +12,13 @@ A reusable set of SCSS classes, mixins and functions. Heavily inspired by inuitc
 @import "lucid-css/tools/image";
 
 // = Settings
-@import "settings/config";
-@import "lucid-css/settings/spacing";
-@import "settings/globals";
 @import "settings/colors";
+@import "lucid-css/settings/colors";
+@import "settings/config";
+@import "settings/globals";
+@import "lucid-css/settings/globals";
+@import "settings/spacing";
+@import "lucid-css/settings/spacing";
 
 // = Generic
 @import "lucid-css/generic/reset";
