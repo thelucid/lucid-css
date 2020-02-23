@@ -8,7 +8,7 @@
   "style": "_lucid.scss",
   "license": "MIT",
   "homepage": "http://thelucid.com",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "dependencies": {
     "bourbon": "^5.0.1"
   }
