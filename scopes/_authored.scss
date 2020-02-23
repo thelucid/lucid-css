@@ -1,0 +1,54 @@
+// This includes the basics for authored content. We will
+// add to this as further scenarios arise, in order to have
+// a solid starting point.
+//
+.s-authored {
+  @include font-size(small, 1.5);
+  
+  p, ul, ol, .trix-content {
+    @include rem(margin-bottom, $global-spacing);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  strong, b {
+    font-weight: $global-font-weight--bold;
+    color: palette(foreground, dark);
+  }
+  em, i {
+    font-style: italic;
+  }
+  ul {
+    li {
+      @include rem(margin-left, $global-spacing);
+      &:before {
+        position: absolute;
+        content: '•';
+        font-size: 120%;
+        @include rem(margin-left, - $global-spacing);
+      }
+    }
+  }
+  ol {
+    counter-reset: count;
+    li {
+      counter-increment: count;
+      &:before {
+        content: counter(count) ". ";
+      }
+    }
+  }
+  h1, h2, h3, h4 {
+    font-weight: $global-font-weight--bold;
+    @include rem(margin-bottom, $global-spacing);
+  }
+  h1 {
+    @include font-size(large, 1.5);
+  }
+  h2 {
+    @include font-size(medium);
+  }
+  p + h1 {
+    @include rem(margin-top, $global-spacing--large);
+  }
+}
