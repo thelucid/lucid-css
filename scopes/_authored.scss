@@ -51,4 +51,21 @@
   p + h1 {
     @include rem(margin-top, $global-spacing--large);
   }
+  code {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    display: inline-block;
+    background: palette(panel, tint);
+    border-radius: $global-radius;
+    @include font-size(tiny);
+    @include rem(padding-left, $global-spacing--tiny);
+    @include rem(padding-right, $global-spacing--tiny);
+
+    pre & {
+      display: block;
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      @include font-size(small, 1.5);
+    }
+  }
 }
