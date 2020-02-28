@@ -1,9 +1,18 @@
 // This includes the basics for authored content. We will
 // add to this as further scenarios arise, in order to have
 // a solid starting point.
-//
+
+$sizes: size-defaults((
+  authored: (
+    body: (
+      font-size: small,
+      rows: null
+    )
+  )
+));
+
 .s-authored {
-  @include font-size(small, 1.5);
+  @include font-size(size(authored, body, font-size), size(authored, body, rows));
   
   p, ul, ol, .trix-content {
     @include rem(margin-bottom, $global-spacing);
