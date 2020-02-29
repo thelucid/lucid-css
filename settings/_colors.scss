@@ -27,15 +27,6 @@ $palettes: palette-defaults((
     ),
     neutral: (
       base: #e67e22
-    ),
-  ),
-  inverted: (
-    background: (
-      base: #1a1a1a
-    ),
-    foreground: (
-      base: tint(black, 80%),
-      light: tint(black, 95%)
     )
   )
 ));
@@ -43,15 +34,24 @@ $palettes: palette-defaults((
 $palettes: palette-defaults((
   foreground: (
     tint: tint(palette(foreground), 75%),
-    light: #888,
-    dark: #444
+    light: tint(palette(foreground), 25%),
+    dark: shade(palette(foreground), 25%)
   ),
   panel: (
     tint: #f7f7f7
   ),
   accent: (
-    dark: shade(palette(accent), 20%),
+    tint: tint(palette(accent), 85%),
     light: tint(palette(accent), 20%),
-    tint: tint(palette(accent), 85%)
+    dark: shade(palette(accent), 20%)
+  ),
+  inverted: (
+    background: (
+      base: palette(foreground)
+    ),
+    foreground: (
+      base: tint(palette(foreground), 80%),
+      light: tint(palette(foreground), 95%)
+    )
   )
 ));
