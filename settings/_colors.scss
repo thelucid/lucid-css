@@ -47,11 +47,11 @@ $palettes: palette-defaults((
   ),
   inverted: (
     background: (
-      base: palette(foreground)
+      base: palette(foreground, dark)
     ),
     foreground: (
-      base: tint(palette(foreground), 80%),
-      light: tint(palette(foreground), 95%)
+      base: tint(palette(foreground, dark), 80%),
+      light: tint(palette(foreground, dark), 95%)
     )
   )
 ));
