@@ -5,6 +5,7 @@ $respond-capable: true !default;
 $respond-default-width: 960 !default;
 $respond-default-height: 800 !default;
 $respond-em-size: $rem-base or 16 !default;
+
 $responds: (
   small:  560,
   medium: 850,
