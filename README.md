@@ -34,6 +34,7 @@ A reusable set of SCSS classes, mixins and functions. Heavily inspired by inuitc
 @import "lucid-css/objects/box";
 @import "lucid-css/objects/container";
 @import "lucid-css/objects/form";
+@import "lucid-css/objects/grid";
 @import "lucid-css/objects/layout";
 @import "lucid-css/objects/media";
 @import "lucid-css/objects/pack";
