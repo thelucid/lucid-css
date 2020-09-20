@@ -1,102 +1,59 @@
 @charset "UTF-8";
 
-$lucid-grid-sizes: (
-  null: $global-spacing,
-  tiny: $global-spacing--tiny,
-  small: $global-spacing--small,
-  large: $global-spacing--large,
-  huge: $global-spacing--huge
+$grid: (
+  null: size(spacing),
+  tiny: size(spacing, tiny),
+  small: size(spacing, small),
+  large: size(spacing, large),
+  huge: size(spacing, huge),
+  flush: 0
 ) !default;
 
 .o-grid {
-  font-size: 0;
-  @include rem(margin-top, - $global-spacing);
-  @include rem(margin-left, - $global-spacing);
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 .o-grid__item {
-  display: inline-block;
-  vertical-align: top;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  @include font-size(base);
-  @include rem(padding-top, $global-spacing);
-  @include rem(padding-left, $global-spacing);
 }
 
-@each $name, $size in $lucid-grid-sizes {
+@each $name, $size in $grid {
   .o-grid#{if($name == null, "", "--#{$name}")} {
-    @include rem(margin-top, - $size);
-    @include rem(margin-left, - $size);
+    margin-top: - $size;
+    margin-left: - $size;
 
     > .o-grid__item {
-      @include rem(padding-top, $size);
-      @include rem(padding-left, $size);
+      padding-top: $size;
+      padding-left: $size;
     }
   }
 }
 
 .o-grid--center {
-  text-align: center;
-  
-  > .o-grid__item {
-    text-align: left;
-  }
+  justify-content: center;
 }
 .o-grid--right {
-  text-align: right;
-
-  > .o-grid__item {
-    text-align: left;
-  }
+  justify-content: flex-end;
 }
 .o-grid--left {
-  text-align: left;
-
-  > .o-grid__item {
-    text-align: left;
-  }
-}
-.o-grid--flush {
-  margin-top: 0;
-  margin-left: 0;
-  
-  > .o-grid__item {
-    padding-top: 0;
-    padding-left: 0;
-  }
+  justify-content: flex-start;
 }
 .o-grid--middle {
   > .o-grid__item {
-    vertical-align: middle;
+    justify-content: center;
   }
 }
 .o-grid--bottom {
   > .o-grid__item {
-    vertical-align: bottom;
-  }
-}
-.o-grid--stretch {
-  display: flex;
-  flex-wrap: wrap;
-
-  > .o-grid__item {
-    display: flex;
-    flex-direction: column;
-    > * { flex: 1; }
-  }
-  &.o-grid--center {
-    justify-content: center;
-  }
-  &.o-grid--right {
     justify-content: flex-end;
   }
-  &.o-grid--left {
-    justify-content: flex-start;
-  }
 }
-.o-grid--reverse {
-  direction: rtl;
-  
+.o-grid--auto {
   > .o-grid__item {
-    direction: ltr;
+    width: auto;
   }
 }

@@ -1,0 +1,116 @@
+@include palettes((
+  button: (
+    foreground: palette(panel),
+    background: palette(accent),
+    hover: (
+      foreground: palette(panel),
+      background: palette(accent, hover)
+    ),
+    positive: (
+      foreground: palette(panel),
+      background: palette(swatches, positive),
+      hover: (
+        foreground: palette(panel),
+        background: palette(swatches, positive, hover),
+      )
+    ),
+    negative: (
+      foreground: palette(panel),
+      background: palette(swatches, negative),
+      hover: (
+        foreground: palette(panel),
+        background: palette(swatches, negative, hover),
+      )
+    ),
+    bare: (
+      foreground: palette(accent),
+      background: transparent,
+      hover: (
+        foreground: palette(accent, hover),
+        background: transparent,
+      )
+    ),
+    ghost: (
+      foreground: palette(foreground),
+      background: transparent,
+      border: palette(foreground, tint),
+      hover: (
+        foreground: palette(foreground),
+        background: transparent,
+        border: shade(palette(foreground, tint), 15%)
+      )
+    )
+  )
+));
+
+.c-button {
+  display: inline-block;
+  border-radius: size(radius);
+  color: palette(button, foreground);
+  background: palette(button, background);
+  padding: size(spacing, small) size(spacing);
+  text-decoration: none;
+  font-size: size(font, small);
+  font-weight: weight(medium);
+  line-height: rhythm(1);
+  
+  &:hover {
+    cursor: pointer;
+    color: palette(button, hover, foreground);
+    background: palette(button, hover, background);
+  }
+}
+
+.c-button--positive {
+  color: palette(button, positive, foreground);
+  background: palette(button, positive, background);
+  
+  &:hover {
+    color: palette(button, positive, hover, foreground);
+    background: palette(button, positive, hover, background);
+  }
+}
+
+.c-button--negative {
+  color: palette(button, negative, foreground);
+  background: palette(button, negative, background);
+  
+  &:hover {
+    color: palette(button, negative, hover, foreground);
+    background: palette(button, negative, hover, background);
+  }
+}
+
+.c-button--bare {
+  //padding: 0 !important;
+  font-weight: weight(normal);
+  color: palette(button, bare, foreground);
+  background: palette(button, bare, background);
+  
+  &:hover {
+    color: palette(button, bare, hover, foreground);
+    background: palette(button, bare, hover, background);
+  }
+}
+
+.c-button--ghost {
+  color: palette(button, ghost, foreground);
+  background: palette(button, ghost, background);
+  box-shadow: inset 0 0 0 1px palette(button, ghost, border);
+  
+  &:hover {
+    color: palette(button, ghost, hover, foreground);
+    background: palette(button, ghost, hover, background);
+    box-shadow: inset 0 0 0 1px palette(button, ghost, hover, border);
+  }
+}
+
+.c-button--small {
+  font-size: size(font, tiny);
+  line-height: rhythm(1);
+  padding: size(spacing, tiny) size(spacing, small);
+}
+
+.c-button--grow {
+  width: 100%;
+}

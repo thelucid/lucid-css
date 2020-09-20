@@ -1,0 +1,20 @@
+@include sizes((
+  title: (
+    size: size(font, huge),
+    rhythm: rhythm(3),
+    trailer: size(spacing)
+  )
+));
+
+@include weights((
+  title: (
+    base: weight(bold)
+  )
+));
+
+.c-title {
+  font-size: size(title, size);
+  line-height: size(title, rhythm);
+  margin-bottom: size(title, trailer);
+  font-weight: weight(title);
+}

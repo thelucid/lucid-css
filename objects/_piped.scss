@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   piped: (
     separator: palette(foreground, tint),
   )
@@ -10,13 +10,13 @@ $palettes: palette-defaults((
 .o-piped__item {
   display: table-cell;
   & + & {
-    @include rem(padding-left, $global-spacing);
+    padding-left: size(spacing);
     border-left: 1px solid palette(foreground, tint);
   }
   &:not(:first-child) {
-    @include rem(padding-left, $global-spacing--small);
+    padding-left: size(spacing, small);
   }
   &:not(:last-child) {
-    @include rem(padding-right, $global-spacing--small);
+    padding-right: size(spacing, small);
   }
 }

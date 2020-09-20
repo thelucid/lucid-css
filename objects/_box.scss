@@ -2,20 +2,20 @@
 
 .o-box {
   display: block;
-  @include rem(padding, $global-spacing);
+  padding: size(spacing);
 }
 .o-box--flush {
   padding: 0;
 }
 .o-box--tiny {
-  @include rem(padding, $global-spacing--tiny);
+  padding: size(spacing, tiny);
 }
 .o-box--small {
-  @include rem(padding, $global-spacing--small);
+  padding: size(spacing, small);
 }
 .o-box--large {
-  @include rem(padding, $global-spacing--large);
+  padding: size(spacing, large);
 }
 .o-box--huge {
-  @include rem(padding, $global-spacing--huge);
+  padding: size(spacing, huge);
 }

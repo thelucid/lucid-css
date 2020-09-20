@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 html {
-  @include font-size(base);
+  @if map-has-key($stacks, base) {
+    font-family: stack();
+  }
+  font-size: size(font, base);
+  
   // Stop jumps between pages.
   overflow-y: scroll;
   min-height: 100%;

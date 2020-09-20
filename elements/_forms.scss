@@ -13,7 +13,7 @@ button {
   margin: 0;
   
   // iOS needs a minimum font size of 16px to prevent zoom.
-  @include font-size(base);
+  font-size: size(font, base);
 
   &:disabled {
     opacity: .5;

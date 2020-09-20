@@ -18,7 +18,7 @@
 //   color: #555555;
 //   color: #888888;
 //
-@function map-fetch($map, $path...) {
+@function fetch($map, $path...) {
   $val: $map;
   @each $segment in $path {
     @if map-has-key($val, $segment) {
@@ -62,12 +62,12 @@
 //     )
 //   );
 //
-@function map-defaults($defaults, $map) {
+@function defaults($defaults, $map) {
   $result: $defaults;
   @each $key, $val in $map {
     @if type-of(map-get($result, $key)) == map and type-of($val) == map {
       $result: map-merge($result, (
-        $key: map-defaults(map-get($result, $key), $val)
+        $key: defaults(map-get($result, $key), $val)
       ));        
     } @elseif not(map-has-key($result, $key)) {
       $result: map-merge($result, ($key: $val));

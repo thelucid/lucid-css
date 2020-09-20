@@ -2,16 +2,14 @@
 
 .o-layout {
   font-size: 0;
-//  @include rem(margin-top, - $global-spacing);
-  @include rem(margin-left, - $global-spacing);
+  margin-left: - size(spacing);
 }
 .o-layout__item {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  @include font-size(base);
-//  @include rem(padding-top, $global-spacing);
-  @include rem(padding-left, $global-spacing);
+  font-size: size(font, base);
+  padding-left: size(spacing);
 }
 
 .o-layout--justify {
@@ -77,42 +75,34 @@
 }
 
 .o-layout--tiny {
-//  @include rem(margin-top, - $global-spacing--tiny);
-  @include rem(margin-left, - $global-spacing--tiny);
+  margin-left: - size(spacing, tiny);
 
   > .o-layout__item {
-//    @include rem(padding-top, $global-spacing--tiny);
-    @include rem(padding-left, $global-spacing--tiny);
+    padding-left: size(spacing, tiny);
   }
 }
 
 .o-layout--small {
-//  @include rem(margin-top, - $global-spacing--small);
-  @include rem(margin-left, - $global-spacing--small);
+  margin-left: - size(spacing, small);
 
   > .o-layout__item {
-//    @include rem(padding-top, $global-spacing--small);
-    @include rem(padding-left, $global-spacing--small);
+    padding-left: size(spacing, small);
   }
 }
 
 .o-layout--large {
-//  @include rem(margin-top, - $global-spacing--large);
-  @include rem(margin-left, - $global-spacing--large);
+  margin-left: - size(spacing, large);
 
   > .o-layout__item {
-//    @include rem(padding-top, $global-spacing--large);
-    @include rem(padding-left, $global-spacing--large);
+    padding-left: size(spacing, large);
   }
 }
 
 .o-layout--huge {
-//  @include rem(margin-top, - $global-spacing--huge);
-  @include rem(margin-left, - $global-spacing--huge);
+  margin-left: - size(spacing, huge);
 
   > .o-layout__item {
-//    @include rem(padding-top, $global-spacing--huge);
-    @include rem(padding-left, $global-spacing--huge);
+    padding-left: size(spacing, huge);
   }
 }
 

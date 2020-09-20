@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// Variable used to define stack maps.
+$stacks: () !default;
+
+// Retrieve a value from a pallete.
+//
+// Example:
+//   $stacks: (
+//     system: (system-ui, -apple-system, BlinkMacSystemFont)
+//   );
+//
+//   font-family: stack(system);
+//
+// Output:
+//   font-family: system-ui, -apple-system, BlinkMacSystemFont;
+//
+@function stack($path...) {
+  @return fetch($stacks, $path...);
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   @include stacks((
+//     helvetica: (
+//       base: Helvetica
+//     )
+//   ));
+//
+//   @include stacks((
+//     helvetica: (,
+//       neue: ("Helvetica Neue", Helvetica)
+//     )
+//   ));
+//
+// Result:
+//   $stacks: (
+//     helvetica: (
+//       base: Helvetica,
+//       neue: ("Helvetica Neue", Helvetica)
+//     )
+//   );
+//
+@mixin stacks($map) {
+  $stacks: defaults($stacks, $map) !global;
+}

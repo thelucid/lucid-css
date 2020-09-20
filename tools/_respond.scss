@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
 // Defaults.
-$respond-capable: true !default;
-$respond-default-width: 960 !default;
-$respond-default-height: 800 !default;
-$respond-em-size: $rem-base or 16 !default;
+$respond-em-size: 16 !default;
 
 $responds: (
   small:  560,
@@ -45,17 +42,16 @@ $responds: (
   @if $until {
     @if type-of($until) != number { $until: map-get($responds, $until); }
     @if unit($until) != em { $until: $until / $respond-em-size * 1em; }
+    
     // Prevent overlapping media queries.
     $until: $until - .01em;
   }
-	@if $respond-capable {
-    $query: "only screen";
-    @if ($from) { $query: "#{$query} and (min-width: #{$from})"; }
-    @if ($until) { $query: "#{$query} and (max-width: #{$until})"; }
-    @if $and { $query: "#{$query} and #{$and}"; }
-    @media #{$query} { @content; }
-	} @else if  ($from == null or $from <= $respond-default-width) and
-	            ($until == null or $until > $respond-default-width) {
-    @content;
-	}
+  
+  $query: "only screen";
+  
+  @if ($from) { $query: "#{$query} and (min-width: #{$from})"; }
+  @if ($until) { $query: "#{$query} and (max-width: #{$until})"; }
+  @if $and { $query: "#{$query} and #{$and}"; }
+  
+  @media #{$query} { @content; }
 }

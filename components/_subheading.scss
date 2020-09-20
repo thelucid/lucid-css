@@ -1,0 +1,20 @@
+@include sizes((
+  subheading: (
+    size: size(font, medium),
+    rhythm: rhythm(1),
+    trailer: size(spacing, small)
+  )
+));
+
+@include weights((
+  subheading: (
+    base: weight(medium)
+  )
+));
+
+.c-subheading {
+  font-size: size(subheading, size);
+  line-height: size(subheading, rhythm);
+  margin-bottom: size(subheading, trailer);
+  font-weight: weight(subheading);
+}

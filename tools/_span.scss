@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-$span-columns: 12 !default;
+$spans: 12 !default;
 
-@function span($columns, $of: $span-columns) {
+@function span($columns, $of: $spans) {
   @return percentage($columns / $of);
 }

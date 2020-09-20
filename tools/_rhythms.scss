@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+// The detault rhythm size (multiple of 4).
+$rhythms: (
+  base: 24
+) !default;
+
+// Retrieve a value from a rhythm, with row multiplier.
+//
+// Example:
+//   $$rhythms: (
+//     base: 20
+//     deep: 30
+//   );
+//
+//   line-height: rhythm(2);
+//   line-height: rhythm(2, deep);
+//
+// Output:
+//   line-height: 40px;
+//   line-height: 60px;
+//
+@function rhythm($rows: 1, $path...) {
+  @return fetch($rhythms, $path...) * $rows * 1px;
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   @include rhythms((
+//     base: 30px,
+//     big: 40px
+//   ));
+//
+//   @include rhythms((
+//     huge: 50px,
+//     nested: (
+//       base: 20px
+//     )
+//   ));
+//
+// Result:
+//   $rhythms: (
+//     base: 30px,
+//     big: 40px,
+//     huge: 50px
+//     nested: (
+//       base: 20px
+//     )
+//   );
+//
+@mixin rhythms($map) {
+  $rhythms: defaults($rhythms, $map) !global;
+}

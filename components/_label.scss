@@ -1,13 +1,13 @@
-$palettes: palette-defaults((
+@include palettes((
   label: (
     foreground: palette(foreground)
   )
 ));
 
-$sizes: size-defaults((
+@include sizes((
   label: (
-    font-size: small,
-    font-weight: $global-font-weight--regular,
+    font-size: size(font, small),
+    font-weight: weight(normal),
     vertical-shift: -.3em
   )
 ));
@@ -19,11 +19,11 @@ $sizes: size-defaults((
   top: size(label, vertical-shift);  
   color: palette(label, foreground);
   font-weight: size(label, font-weight);
-  @include font-size(size(label, font-size));
+  font-size: size(label, font-size);
 }
 
 // For when it's next to an input--auto.
 .c-label--adjacent {
   top: 0;
-  @include rem(padding-right, $global-spacing--small)
+  padding-right: size(spacing, small);
 }

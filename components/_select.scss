@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   select: (
     foreground: palette(foreground),
     border: palette(foreground, tint),
@@ -13,10 +13,10 @@ $palettes: palette-defaults((
 
 .c-select {
   position: relative;
-  border-radius: $global-radius;
+  border-radius: size(radius);
   background: #fff;
   box-shadow: inset 0 0 0 1px palette(select, border),
-              0 $global-shadow palette(select, shadow);
+              0 size(shadow) palette(select, shadow);
   &:after {
     content: '';
     pointer-events: none;
@@ -29,7 +29,7 @@ $palettes: palette-defaults((
     box-shadow: 2px 2px palette(select, arrow);
     transform-origin: bottom right;
     transform: rotate(45deg);
-    @include rem(right, $global-spacing);
+    right: size(spacing);
   }
 }
 .c-select__control {
@@ -38,12 +38,12 @@ $palettes: palette-defaults((
   background: transparent;
   width: 100%;
   // So that focus glow is correct.
-  border-radius: $global-radius;
+  border-radius: size(radius);
   color: palette(select, foreground);
-  @include font-size(small);
-  @include rem(padding, $global-spacing--small);
+  font-size: size(font, small);
+  padding: size(spacing, small);
   // Arrow width (12px), with padding either side.
-  @include rem(padding-right, $global-spacing--small + 12 + $global-spacing--small);
+  padding-right: size(spacing, small) + 12 + size(spacing, small);
 
   // Outline doesn't respect radius
   &:focus {

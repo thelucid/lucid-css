@@ -1,5 +1,5 @@
 {
-  "name": "lucid-css",
+  "name": "@thelucid/css",
   "author": {
     "name": "Jamie Hill",
     "email": "jamie@thelucid.com"
@@ -8,8 +8,5 @@
   "style": "_lucid.scss",
   "license": "MIT",
   "homepage": "http://thelucid.com",
-  "version": "1.0.17",
-  "dependencies": {
-    "bourbon": "^5.0.1"
-  }
+  "version": "2.0.0-beta.0"
 }

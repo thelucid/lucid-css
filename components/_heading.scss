@@ -1,0 +1,20 @@
+@include sizes((
+  heading: (
+    size: size(font, large),
+    rhythm: rhythm(2),
+    trailer: size(spacing, small)
+  )
+));
+
+@include weights((
+  heading: (
+    base: weight(bold)
+  )
+));
+
+.c-heading {
+  font-size: size(heading, size);
+  line-height: size(heading, rhythm);
+  margin-bottom: size(heading, trailer);
+  font-weight: weight(heading);
+}

@@ -8,22 +8,22 @@
 }
 .o-table--tiny {
   th, td {
-    @include rem(padding, $global-spacing--tiny);
+    padding: size(spacing, tiny);
   }
 }
 .o-table--medium {
   th, td {
-    @include rem(padding, $global-spacing);
+    padding: size(spacing);
   }
 }
 .o-table--large {
   th, td {
-    @include rem(padding, $global-spacing--large);
+    padding: size(spacing, large);
   }
 }
 .o-table--huge {
   th, td {
-    @include rem(padding, $global-spacing--huge);
+    padding: size(spacing, huge);
   }
 }
 .o-table.is-empty {
@@ -31,7 +31,7 @@
 }
 .o-table__cell {
   text-align: left;
-  @include rem(padding, $global-spacing--small);
+  padding: size(spacing, small);
 }
 .o-table__cell--middle {
   vertical-align: middle;
@@ -51,9 +51,9 @@
 }
 // TODO: Should probably be in app.
 .o-table__cell--image:not(.o-table__cell--header) {
-  @include rem(padding, $global-spacing--tiny, $important: true);
-  @include rem(min-width, $global-spacing * 4);
-  @include rem(width, $global-spacing * 4);
+  padding: size(spacing, tiny) !important;
+  min-width: size(spacing) * 4;
+  width: size(spacing) * 4;
 }
 .o-table__cell--center {
   text-align: center;

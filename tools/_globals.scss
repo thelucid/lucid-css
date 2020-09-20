@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// Variable used to define global maps.
+$globals: (
+) !default;
+
+// Retrieve a value from a pallete.
+//
+// Example:
+//   $globals: (
+//     transition: (
+//       time: .15s,
+//       ease: ease
+//     )
+//   );
+//
+//   transition: left global(transition, time), global(transition, ease);
+//
+// Output:
+//   transition: left .15s ease;
+//
+@function global($path...) {
+  @return fetch($globals, $path...);
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   @include globals((
+//     transition: (
+//       time: .15s
+//     )
+//   ));
+//
+//   @include globals((
+//     transition: (
+//       ease: ease
+//     )
+//   ));
+//
+// Result:
+//   $globals: (
+//     transition: (
+//       time: .15s,
+//       ease: ease
+//     )
+//   );
+//
+@mixin globals($map) {
+  $globals: defaults($globals, $map) !global;
+}

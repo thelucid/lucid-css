@@ -3,15 +3,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  @include rem(margin-top, - $global-spacing);
-  @include rem(margin-left, - $global-spacing);
+  margin-top: - size(spacing);
+  margin-left: - size(spacing);
 }
 .o-form__actions {
   justify-content: flex-end;
   align-items: center;
-  @include rem(padding-top, $global-spacing);
+  padding-top: size(spacing);
   .o-form > & {
-    @include rem(padding-top, $global-spacing + $global-spacing);
+    padding-top: size(spacing) + size(spacing);
   }
   .o-form__field > &:first-child {
     padding-top: 0;
@@ -21,9 +21,9 @@
 .o-form__action {
   display: flex;
   flex-direction: column;
-  @include font-size(base);
-  @include rem(margin-top, $global-spacing);
-  @include rem(padding-left, $global-spacing);
+  font-size: size(font, base);
+  margin-top: size(spacing);
+  padding-left: size(spacing);
 }
 .o-form__field {
   justify-content: space-between;
@@ -36,7 +36,7 @@
   width: 100%;
 }
 .o-form__fieldset {
-  @include rem(margin-bottom, $global-spacing--large);
+  margin-bottom: size(spacing, large);
   .o-form__field > & {
     margin-bottom: 0;
   }
@@ -45,26 +45,26 @@
   > .o-form__field {
     width: auto;
     padding-left: 0;
-    @include rem(margin-left, $global-spacing);
+    margin-left: size(spacing);
   }
 }
 .o-form__fields--right {
   justify-content: flex-end;
 }
 .o-form__fields--small {
-  @include rem(margin-top, - $global-spacing--small);
-  @include rem(margin-left, - $global-spacing--small);
+  margin-top: - size(spacing, small);
+  margin-left: - size(spacing, small);
   > .o-form__field {
-    @include rem(margin-top, $global-spacing--small);
-    @include rem(padding-left, $global-spacing--small);
+    margin-top: size(spacing, small);
+    padding-left: size(spacing, small);
   }
 }
 .o-form__actions--small {
-  @include rem(margin-top, - $global-spacing--small);
-  @include rem(margin-left, - $global-spacing--small);
+  margin-top: - size(spacing, small);
+  margin-left: - size(spacing, small);
   > .o-form__action {
-    @include rem(margin-top, $global-spacing--small);
-    @include rem(padding-left, $global-spacing--small);
+    margin-top: size(spacing, small);
+    padding-left: size(spacing, small);
   }
 }
 .o-form__fields {

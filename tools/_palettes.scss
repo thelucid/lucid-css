@@ -21,21 +21,21 @@ $palettes: () !default;
 //   color: #888888;
 //
 @function palette($path...) {
-  @return map-fetch($palettes, $path...);
+  @return fetch($palettes, $path...);
 }
 
 // Non-destructive merge that preserves any existing
 // default values. Similar to !default flag on variables.
 //
 // Example:
-//   $palettes: (
+//   @include palettes((
 //     foreground: (
 //       base: #555,
 //       light: #888
 //     )
-//   );
+//   ));
 //
-//   $palettes: palette-defaults((
+//   @include palettes((
 //     foreground: (
 //       dark: #333
 //     ),
@@ -56,6 +56,6 @@ $palettes: () !default;
 //     )
 //   );
 //
-@function palette-defaults($map) {
-  @return map-defaults($palettes, $map);
+@mixin palettes($map) {
+  $palettes: defaults($palettes, $map) !global;
 }

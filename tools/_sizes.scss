@@ -21,21 +21,21 @@ $sizes: () !default;
 //   color: 20px;
 //
 @function size($path...) {
-  @return map-fetch($sizes, $path...);
+  @return fetch($sizes, $path...);
 }
 
 // Non-destructive merge that preserves any existing
 // default values. Similar to !default flag on variables.
 //
 // Example:
-//   $sizes: (
+//   @include sizes((
 //     heading: (
 //       base: 30px,
 //       big: 40px
 //     )
-//   );
+//   ));
 //
-//   $sizes: size-defaults((
+//   @include sizes((
 //     heading: (
 //       huge: 50px
 //     ),
@@ -56,6 +56,6 @@ $sizes: () !default;
 //     )
 //   );
 //
-@function size-defaults($map) {
-  @return map-defaults($sizes, $map);
+@mixin sizes($map) {
+  $sizes: defaults($sizes, $map) !global;
 }

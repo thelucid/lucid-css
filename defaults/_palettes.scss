@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   foreground: (
     base: #5e5e5e
   ),
@@ -31,7 +31,7 @@ $palettes: palette-defaults((
   )
 ));
 
-$palettes: palette-defaults((
+@include palettes((
   foreground: (
     tint: tint(palette(foreground), 75%),
     light: tint(palette(foreground), 25%),
@@ -41,10 +41,23 @@ $palettes: palette-defaults((
     tint: #f7f7f7
   ),
   accent: (
-    tint: tint(palette(accent), 85%),
-    light: tint(palette(accent), 20%),
-    dark: shade(palette(accent), 20%)
+    hover: tint(palette(accent), 20%),
+    tint: tint(palette(accent), 70%)
   ),
+  swatches: (
+    positive: (
+      hover: shade(palette(swatches, positive), 20%)
+    ),
+    negative: (
+      hover: shade(palette(swatches, negative), 20%)
+    ),
+    neutral: (
+      hover: shade(palette(swatches, neutral), 20%)
+    )
+  ),
+));
+
+@include palettes((
   inverted: (
     background: (
       base: palette(foreground, dark)

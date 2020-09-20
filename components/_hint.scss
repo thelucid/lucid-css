@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   hint: (
     foreground: palette(foreground, light)
   )
@@ -11,10 +11,10 @@ $palettes: palette-defaults((
   position: relative;
   // Shift to top of rhythm row.
   top: -.3em;
-  @include font-size(tiny);
+  font-size: size(font, tiny);
   
   .c-checkbox + & {
-    @include rem(margin-top, $global-spacing--small);
-    @include rem(padding-left, $global-spacing + $global-spacing--small);
+    margin-top: size(spacing, small);
+    padding-left: size(spacing) + size(spacing, small);
   }
 }

@@ -4,7 +4,7 @@
 }
 .o-media__image {
   float: left;
-  @include rem(margin-right, $global-spacing);
+  margin-right: size(spacing);
 }
 .o-media__body {
   overflow: hidden;
@@ -18,45 +18,45 @@
 }
 .o-media--tiny {
   > .o-media__image {
-    @include rem(margin-right, $global-spacing--tiny);
+    margin-right: size(spacing, tiny);
   }
   &.o-media--reverse {
     > .o-media__image {
       margin-right: 0;
-      @include rem(margin-left, $global-spacing--tiny);
+      margin-left: size(spacing, tiny);
     }
   }
 }
 .o-media--small {
   > .o-media__image {
-    @include rem(margin-right, $global-spacing--small);
+    margin-right: size(spacing, small);
   }
   &.o-media--reverse {
     > .o-media__image {
       margin-right: 0;
-      @include rem(margin-left, $global-spacing--small);
+      margin-left: size(spacing, small);
     }
   }
 }
 .o-media--large {
   > .o-media__image {
-    @include rem(margin-right, $global-spacing--large);
+    margin-right: size(spacing, large);
   }
   &.o-media--reverse {
     > .o-media__image {
       margin-right: 0;
-      @include rem(margin-left, $global-spacing--large);
+      margin-left: size(spacing, large);
     }
   }
 }
 .o-media--huge {
   > .o-media__image {
-    @include rem(margin-right, $global-spacing--huge);
+    margin-right: size(spacing, huge);
   }
   &.o-media--reverse {
     > .o-media__image {
       margin-right: 0;
-      @include rem(margin-left, $global-spacing--huge);
+      margin-left: size(spacing, huge);
     }
   }
 }
@@ -65,6 +65,6 @@
   > .o-media__image {
     float: right;
     margin-right: 0;
-    @include rem(margin-left, $global-spacing);
+    margin-left: size(spacing);
   }
 }

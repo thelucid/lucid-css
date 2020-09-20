@@ -1,22 +1,25 @@
-// = Vendor
-@import "bourbon/core/bourbon";
-
 // = Tools
-@import "tools/font-size";
+@import "tools/clearfix";
+@import "tools/globals";
 @import "tools/map";
 @import "tools/palettes";
 @import "tools/placeholder";
-@import "tools/rem";
 @import "tools/respond";
-@import "tools/rhythm";
+@import "tools/rhythms";
+@import "tools/shade";
 @import "tools/sizes";
 @import "tools/span";
 @import "tools/sprite";
+@import "tools/stacks";
+@import "tools/tint";
+@import "tools/weights";
 
 // = Settings
-// @import "lucid-css/settings/colors";
-// @import "lucid-css/settings/globals";
-// @import "lucid-css/settings/spacing";
+// @import "lucid-css/defaults/globals";
+// @import "lucid-css/defaults/palettes";
+// @import "lucid-css/defaults/sizes";
+// @import "lucid-css/defaults/stacks";
+// @import "lucid-css/defaults/weights";
 
 // Optional
 // @import "tools/image";

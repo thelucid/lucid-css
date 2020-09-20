@@ -1,6 +1,6 @@
 @mixin document-icon(
   $position: relative,
-  $radius: $global-radius,
+  $radius: size(radius),
   $earmark: 12px,
   $thickness: 1px,
   $width: 44px,

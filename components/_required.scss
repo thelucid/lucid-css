@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   required: (
     foreground: palette(swatches, negative)
   )

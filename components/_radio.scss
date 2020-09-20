@@ -1,4 +1,4 @@
-$palettes: palette-defaults((
+@include palettes((
   radio: (
     foreground: palette(accent),
     background: palette(panel),
@@ -12,11 +12,11 @@ $palettes: palette-defaults((
   )
 ));
 
-$sizes: size-defaults((
+@include sizes((
   radio: (
     label: (
-      font-size: small,
-      font-weight: $global-font-weight--regular
+      font-size: size(font, small),
+      font-weight: weight(normal)
     )
   )
 ));
@@ -31,8 +31,8 @@ $sizes: size-defaults((
   position: relative;
   cursor: pointer;
   font-weight: size(radio, label, font-weight);
-  @include font-size(size(radio, label, font-size));
-  @include rem(padding-left, $global-spacing + $global-spacing--small);
+  font-size: size(radio, label, font-size);
+  padding-left: size(spacing) + size(spacing, small);
   
   &:before {
     content: '';
@@ -41,13 +41,13 @@ $sizes: size-defaults((
     left: 0;
     top: 0;
     border-radius: 50%;
-    @include rem(width, $global-spacing);
-    @include rem(height, $global-spacing);
+    width: size(spacing);
+    height: size(spacing);
     
     .c-radio__control:checked + & {
       background: palette(radio, checked, background);
       box-shadow: inset 0 0 0 1px palette(radio, checked, border),
-                  0 $global-shadow 0 palette(radio, shadow);
+                  0 size(shadow) 0 palette(radio, shadow);
     }
   }
   &:after {
@@ -57,12 +57,12 @@ $sizes: size-defaults((
       position: absolute;
       background: palette(accent);
       border-radius: 50%;
-      @include rem(top, rhythm(.5));
-      @include rem(left, rhythm(.5));
-      @include rem(width, rhythm(.4));
-      @include rem(height, rhythm(.4));
-      @include rem(margin-top, rhythm(-.2));
-      @include rem(margin-left, rhythm(-.2));
+      top: rhythm(.5);
+      left: rhythm(.5);
+      width: rhythm(.4);
+      height: rhythm(.4);
+      margin-top: rhythm(-.2);
+      margin-left: rhythm(-.2);
     }
   }
 }

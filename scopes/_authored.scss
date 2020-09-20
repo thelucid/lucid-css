@@ -2,7 +2,7 @@
 // add to this as further scenarios arise, in order to have
 // a solid starting point.
 
-$sizes: size-defaults((
+@include sizes((
   authored: (
     body: (
       font-size: small,
@@ -12,16 +12,17 @@ $sizes: size-defaults((
 ));
 
 .s-authored {
-  @include font-size(size(authored, body, font-size), size(authored, body, rows));
+  font-size: size(authored, body, font-size);
+  line-height: size(authored, body, rows);
   
   p, ul, ol, .trix-content {
-    @include rem(margin-bottom, $global-spacing);
+    margin-bottom: size(spacing);
     &:last-child {
       margin-bottom: 0;
     }
   }
   strong, b {
-    font-weight: $global-font-weight--bold;
+    font-weight: weight(bold);
     color: palette(foreground, dark);
   }
   em, i {
@@ -29,12 +30,12 @@ $sizes: size-defaults((
   }
   ul {
     li {
-      @include rem(margin-left, $global-spacing);
+      margin-left: size(spacing);
       &:before {
         position: absolute;
         content: '•';
         font-size: 120%;
-        @include rem(margin-left, - $global-spacing);
+        margin-left: - size(spacing);
       }
     }
   }
@@ -48,33 +49,35 @@ $sizes: size-defaults((
     }
   }
   h1, h2, h3, h4 {
-    font-weight: $global-font-weight--bold;
-    @include rem(margin-bottom, $global-spacing);
+    font-weight: weight(bold);
+    margin-bottom: size(spacing);
   }
   h1 {
-    @include font-size(large, 1.5);
+    font-size: size(font, large);
+    line-height: rhythm(1.5);
   }
   h2 {
-    @include font-size(medium);
+    font-size: size(font, medium);
   }
   p + h1 {
-    @include rem(margin-top, $global-spacing--large);
+    margin-top: size(spacing, large);
   }
   code {
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     display: inline-block;
     background: palette(panel, tint);
-    border-radius: $global-radius;
-    @include font-size(tiny);
-    @include rem(padding-left, $global-spacing--tiny);
-    @include rem(padding-right, $global-spacing--tiny);
+    border-radius: size(radius);
+    font-size: size(font, tiny);
+    padding-left: size(spacing, tiny);
+    padding-right: size(spacing, tiny);
 
     pre & {
       display: block;
       background: transparent;
       padding-left: 0;
       padding-right: 0;
-      @include font-size(small, 1.5);
+      font-size: size(font, small);
+      line-height: rhythm(1.5);
     }
   }
 }

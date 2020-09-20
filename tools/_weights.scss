@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// Variable used to define weight maps.
+$weights: () !default;
+
+// Retrieve a value from a pallete.
+//
+// Example:
+//   $weights: (
+//     normal: 400,
+//     medium: 600,
+//     bold: 700
+//   );
+//
+//   font-weight: weight(medium);
+//   font-weight: weight(bold);
+//
+// Output:
+//   font-weight: 600;
+//   font-weight: 700;
+//
+@function weight($path...) {
+  @return fetch($weights, $path...);
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   @include weights((
+//     heading: (
+//       base: normal,
+//       heavy: 800
+//     )
+//   ));
+//
+//   @include weights((
+//     heading: (
+//       light: 300
+//     ),
+//     subheading: (
+//       base: 300
+//     )
+//   ));
+//
+// Result:
+//   $weights: (
+//     heading: (
+//       base: normal,
+//       heavy: 800,
+//       light: 300
+//     ),
+//     subheading: (
+//       base: 300
+//     )
+//   );
+//
+@mixin weights($map) {
+  $weights: defaults($weights, $map) !global;
+}

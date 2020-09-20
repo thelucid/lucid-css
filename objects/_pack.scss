@@ -20,19 +20,19 @@
   width: 100%;
 }
 .o-pack--tiny {
-  @include rem(border-spacing, $global-spacing--tiny);
+  border-spacing: size(spacing, tiny);
 }
 .o-pack--small {
-  @include rem(border-spacing, $global-spacing--small);
+  border-spacing: size(spacing, small);
 }
 .o-pack--default {
-  @include rem(border-spacing, $global-spacing);
+  border-spacing: size(spacing);
 }
 .o-pack--large {
-  @include rem(border-spacing, $global-spacing--large);
+  border-spacing: size(spacing, large);
 }
 .o-pack--huge {
-  @include rem(border-spacing, $global-spacing--huge);
+  border-spacing: size(spacing, huge);
 }
 .o-pack--auto {
   table-layout: auto;

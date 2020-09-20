@@ -1,0 +1,23 @@
+@include sizes((
+  radius: (
+    base: 2px
+  ),
+  shadow: (
+    base: 1px
+  ),
+  spacing: (
+    tiny: round(rhythm(.25)),
+    small: round(rhythm(.5)),
+    base: rhythm(1),
+    large: round(rhythm(2)),
+    huge: round(rhythm(4))
+  ),
+  font: (
+    base: 16px,
+    tiny: 14px,
+    small: 15px,
+    medium: 18px,
+    large: 31px,
+    huge: 48px,
+  )
+));
