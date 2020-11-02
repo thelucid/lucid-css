@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
-// The detault rhythm size (multiple of 4).
-$rhythms: (
-  base: 24
-) !default;
+// Variable used to define rhythm maps.
+$rhythms: () !default;
 
 // Retrieve a value from a rhythm, with row multiplier.
 //

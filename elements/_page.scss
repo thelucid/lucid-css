@@ -5,6 +5,7 @@ html {
     font-family: stack();
   }
   font-size: size(font, base);
+  line-height: rhythm(1);
   
   // Stop jumps between pages.
   overflow-y: scroll;
