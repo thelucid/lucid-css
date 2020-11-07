@@ -3,13 +3,7 @@
 // Defaults.
 $respond-em-size: 16 !default;
 
-$responds: (
-  small:  560,
-  medium: 850,
-  large:  1100,
-  huge:   1400,
-  nav:    768
-) !default;
+$responds: () !default;
 
 // Simply defines a media query based on $responds map values or specified
 // values, with an interface that is purposely compatible with that of sass-mq.
@@ -54,4 +48,30 @@ $responds: (
   @if $and { $query: "#{$query} and #{$and}"; }
   
   @media #{$query} { @content; }
+}
+
+// Non-destructive merge that preserves any existing
+// default values. Similar to !default flag on variables.
+//
+// Example:
+//   @include responds((
+//     small:  560,
+//     medium: 850,
+//     large:  1100
+//   ));
+//
+//   @include responds((
+//     nav: 768
+//   ));
+//
+// Result:
+//   $responds: (
+//     small:  560,
+//     medium: 850,
+//     large:  1100,
+//     nav: 768
+//   );
+//
+@mixin responds($map) {
+  $responds: defaults($responds, $map) !global;
 }

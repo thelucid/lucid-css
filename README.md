@@ -16,6 +16,10 @@ A reusable set of SCSS classes, mixins and functions. Heavily inspired by inuitc
 @import "@thelucid/css/defaults/globals";
 @import "settings/palettes";
 @import "@thelucid/css/defaults/palettes";
+@import "settings/responds";
+@import "@thelucid/css/defaults/responds";
+@import "settings/rhythms";
+@import "@thelucid/css/defaults/rhythms";
 @import "settings/sizes";
 @import "@thelucid/css/defaults/sizes";
 @import "settings/stacks";
