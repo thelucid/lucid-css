@@ -1,4 +1,15 @@
-@charset "UTF-8";
+@include palettes((
+  page: (
+    foreground: palette(foreground),
+    background: palette(background)
+  )
+));
+
+@include palettes((
+  page: (
+    surround: palette(palette(page, background))
+  )
+));
 
 html {
   @if map-has-key($stacks, base) {
@@ -10,4 +21,9 @@ html {
   // Stop jumps between pages.
   overflow-y: scroll;
   min-height: 100%;
+}
+
+body {
+  color: palette(foreground);
+  background: palette(background);
 }
