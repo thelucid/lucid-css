@@ -7,7 +7,7 @@
 
 @include palettes((
   page: (
-    surround: palette(palette(page, background))
+    surround: palette(page, background)
   )
 ));
 
