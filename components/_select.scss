@@ -11,6 +11,15 @@
   )
 ));
 
+@include sizes((
+  select: (
+    font-size: size(font, small),
+    line-height: rhythm(1),
+    horizontal-padding: size(spacing, small),
+    vertical-padding: size(spacing, small)
+  )
+));
+
 .c-select {
   position: relative;
   border-radius: size(radius);
@@ -39,10 +48,11 @@
   // So that focus glow is correct.
   border-radius: size(radius);
   color: palette(select, foreground);
-  font-size: size(font, small);
-  padding: size(spacing, small);
+  font-size: size(select, font-size);
+  line-height: size(select, line-height);
+  padding: size(select, horizontal-padding) size(select, vertical-padding);
   // Arrow width (12px), with padding either side.
-  padding-right: size(spacing, small) + 12 + size(spacing, small);
+  padding-right: size(select, horizontal-padding) + 12px + size(select, horizontal-padding);
 
   // Outline doesn't respect radius
   &:focus {
