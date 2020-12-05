@@ -11,29 +11,6 @@ $container-width: 1200px !default;
       medium: (
         gutter: size(spacing, large)
       )
-    ),
-    tiny: (
-      base: (
-        gutter: size(spacing, tiny)
-      )
-    ),
-    small: (
-      base: (
-        gutter: size(spacing, small)
-      )
-    ),
-    large: (
-      base: (
-        gutter: size(spacing, large)
-      )
-    ),
-    huge: (
-      base: (
-        gutter: size(spacing, huge)
-      )
-    ),
-    flush: (
-      base: 0
     )
   )
 ));

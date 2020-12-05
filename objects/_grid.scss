@@ -1,13 +1,39 @@
 @charset "UTF-8";
 
-$grid: (
-  null: size(spacing),
-  tiny: size(spacing, tiny),
-  small: size(spacing, small),
-  large: size(spacing, large),
-  huge: size(spacing, huge),
-  flush: 0
-) !default;
+@include sizes((
+  grid: (
+    default: (
+      base: (
+        gutter: size(spacing),
+      )
+    ),
+    tiny: (
+      base: (
+        gutter: size(spacing, tiny)
+      )
+    ),
+    small: (
+      base: (
+        gutter: size(spacing, small)
+      )
+    ),
+    large: (
+      base: (
+        gutter: size(spacing, large)
+      )
+    ),
+    huge: (
+      base: (
+        gutter: size(spacing, huge)
+      )
+    ),
+    flush: (
+      base: (
+        gutter: 0
+      )
+    )
+  )
+));
 
 .o-grid {
   pointer-events: none;
@@ -21,14 +47,19 @@ $grid: (
   width: 100%;
 }
 
-@each $name, $size in $grid {
-  .o-grid#{if($name == null, "", "--#{$name}")} {
-    margin-top: - $size;
-    margin-left: - $size;
+@each $modifier, $responds in map-get($sizes, grid) {
+  .o-grid#{modifier($modifier)} {
+    @each $respond, $size in $responds {
+      @include respond($respond) {
+        $gutter: map-get($size, gutter);
+        margin-top: - $gutter;
+        margin-left: - $gutter;
 
-    > .o-grid__item {
-      padding-top: $size;
-      padding-left: $size;
+        > .o-grid__item {
+          padding-top: $gutter;
+          padding-left: $gutter;
+        }
+      }
     }
   }
 }
