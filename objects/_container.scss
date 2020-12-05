@@ -10,6 +10,26 @@ $container-width: 1200px !default;
   max-width: $container-width;
 }
 
+.o-container--flush {
+  padding-left: 0;
+}
+.o-container--tiny {
+  padding-left: size(spacing, tiny);
+  padding-right: size(spacing, tiny);
+}
+.o-container--small {
+  padding-left: size(spacing, small);
+  padding-right: size(spacing, small);
+}
+.o-container--large {
+  padding-left: size(spacing, large);
+  padding-right: size(spacing, large);
+}
+.o-container--huge {
+  padding-left: size(spacing, huge);
+  padding-right: size(spacing, huge);
+}
+
 .o-container--grow {
   max-width: none;
 }
