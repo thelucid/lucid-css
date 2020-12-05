@@ -5,12 +5,6 @@
     default: (
       base: (
         gutter: size(spacing),
-      ),
-      medium: (
-        gutter: size(spacing, large)
-      ),
-      huge: (
-        gutter: size(spacing, huge)
       )
     ),
     tiny: (
