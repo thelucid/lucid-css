@@ -10,6 +10,9 @@ $container-width: 1200px !default;
       ),
       medium: (
         gutter: size(spacing, large)
+      ),
+      huge: (
+        gutter: size(spacing, huge)
       )
     )
   )
