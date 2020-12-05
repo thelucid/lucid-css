@@ -28,39 +28,14 @@ $container-width: 1200px !default;
 .o-container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: size(spacing);
-  padding-right: size(spacing);
   max-width: $container-width;
 }
 
-
-@each $name, $size in map-get($sizes, "container") {
+@each $name, $size in map-get($sizes, container) {
   .o-container#{if($name == default, "", "--#{$name}")} {
     padding-left: size(container, $name);
     padding-right: size(container, $name);
   }
-}
-
-
-.o-container--flush {
-  padding-left: 0;
-  padding-right: 0;
-}
-.o-container--tiny {
-  padding-left: size(spacing, tiny);
-  padding-right: size(spacing, tiny);
-}
-.o-container--small {
-  padding-left: size(spacing, small);
-  padding-right: size(spacing, small);
-}
-.o-container--large {
-  padding-left: size(spacing, large);
-  padding-right: size(spacing, large);
-}
-.o-container--huge {
-  padding-left: size(spacing, huge);
-  padding-right: size(spacing, huge);
 }
 
 .o-container--grow {

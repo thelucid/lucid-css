@@ -20,13 +20,13 @@
 //
 @function fetch($map, $path...) {
   $val: $map;
-  @each $segment in $path {
-    @if map-has-key($val, $segment) {
-      $val: map-get($val, $segment);
-    } @else {
-      @error "Can't find #{$path}";
-    }
-  }
+  //@each $segment in $path {
+  //  @if map-has-key($val, $segment) {
+      $val: map-get($val, $path);
+  //  } @else {
+  //    @error "Can't find #{$path}";
+  //  }
+  //}
   @return if(type-of($val) == map, map-get($val, base), $val);
 }
 
