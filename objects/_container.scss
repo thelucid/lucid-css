@@ -2,6 +2,29 @@
 
 $container-width: 1200px !default;
 
+@include sizes((
+  container: (
+    flush: (
+      base: 0
+    ),
+    tiny: (
+      base: size(spacing, tiny)
+    ),
+    small: (
+      base: size(spacing, small)
+    ),
+    default: (
+      base: size(spacing)
+    ),
+    large: (
+      base: size(spacing, large)
+    ),
+    huge: (
+      base: size(spacing, huge)
+    )
+  )
+));
+
 .o-container {
   margin-left: auto;
   margin-right: auto;
@@ -10,8 +33,18 @@ $container-width: 1200px !default;
   max-width: $container-width;
 }
 
+
+@each $name, $size in map-get($sizes, "container") {
+  .o-container#{if($name == default, "", "--#{$name}")} {
+    padding-left: size(container, $name);
+    padding-right: size(container, $name);
+  }
+}
+
+
 .o-container--flush {
   padding-left: 0;
+  padding-right: 0;
 }
 .o-container--tiny {
   padding-left: size(spacing, tiny);
