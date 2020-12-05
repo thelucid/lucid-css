@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+@function modifier($modifier) {
+  @return if($modifier == default, "", "--#{$modifier}")
+}
+

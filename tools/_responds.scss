@@ -29,25 +29,29 @@ $responds: () !default;
 //   }
 //
 @mixin respond($from: null, $until: null, $and: null) {
-  @if $from {
-    @if type-of($from) != number { $from: map-get($responds, $from); }
-    @if unit($from) != em { $from: $from / $respond-em-size * 1em; }
-  }
-  @if $until {
-    @if type-of($until) != number { $until: map-get($responds, $until); }
-    @if unit($until) != em { $until: $until / $respond-em-size * 1em; }
+  @if $from == base {
+    @content;
+  } @else {
+    @if $from {
+      @if type-of($from) != number { $from: map-get($responds, $from); }
+      @if unit($from) != em { $from: $from / $respond-em-size * 1em; }
+    }
+    @if $until {
+      @if type-of($until) != number { $until: map-get($responds, $until); }
+      @if unit($until) != em { $until: $until / $respond-em-size * 1em; }
     
-    // Prevent overlapping media queries.
-    $until: $until - .01em;
+      // Prevent overlapping media queries.
+      $until: $until - .01em;
+    }
+  
+    $query: "only screen";
+  
+    @if ($from) { $query: "#{$query} and (min-width: #{$from})"; }
+    @if ($until) { $query: "#{$query} and (max-width: #{$until})"; }
+    @if $and { $query: "#{$query} and #{$and}"; }
+  
+    @media #{$query} { @content; }
   }
-  
-  $query: "only screen";
-  
-  @if ($from) { $query: "#{$query} and (min-width: #{$from})"; }
-  @if ($until) { $query: "#{$query} and (max-width: #{$until})"; }
-  @if $and { $query: "#{$query} and #{$and}"; }
-  
-  @media #{$query} { @content; }
 }
 
 // Non-destructive merge that preserves any existing

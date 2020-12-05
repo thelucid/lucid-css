@@ -4,23 +4,36 @@ $container-width: 1200px !default;
 
 @include sizes((
   container: (
-    flush: (
-      base: 0
+    default: (
+      base: (
+        gutter: size(spacing),
+      ),
+      medium: (
+        gutter: size(spacing, large)
+      )
     ),
     tiny: (
-      base: size(spacing, tiny)
+      base: (
+        gutter: size(spacing, tiny)
+      )
     ),
     small: (
-      base: size(spacing, small)
-    ),
-    default: (
-      base: size(spacing)
+      base: (
+        gutter: size(spacing, small)
+      )
     ),
     large: (
-      base: size(spacing, large)
+      base: (
+        gutter: size(spacing, large)
+      )
     ),
     huge: (
-      base: size(spacing, huge)
+      base: (
+        gutter: size(spacing, huge)
+      )
+    ),
+    flush: (
+      base: 0
     )
   )
 ));
@@ -31,12 +44,22 @@ $container-width: 1200px !default;
   max-width: $container-width;
 }
 
-@each $name, $size in map-get($sizes, container) {
-  .o-container#{if($name == default, "", "--#{$name}")} {
-    padding-left: size(container, $name);
-    padding-right: size(container, $name);
+@each $modifier, $responds in map-get($sizes, container) {
+  .o-container#{modifier($modifier)} {
+    @each $respond, $size in $responds {
+      @include respond($respond) {
+        $gutter: map-get($size, gutter);
+        padding-left: $gutter;
+        padding-right: $gutter;
+      }
+    }
   }
 }
+
+// @include responsive(o-container, map-get($sizes, container), (
+//   padding-left: gutter,
+//   padding-right: gutter
+// ));
 
 .o-container--grow {
   max-width: none;
