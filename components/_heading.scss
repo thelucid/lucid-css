@@ -24,6 +24,10 @@
   line-height: size(heading, rhythm);
   margin-bottom: size(heading, trailer);
   font-weight: weight(heading);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .c-heading__link {
   color: inherit;

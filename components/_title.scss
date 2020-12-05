@@ -17,4 +17,8 @@
   line-height: size(title, rhythm);
   margin-bottom: size(title, trailer);
   font-weight: weight(title);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

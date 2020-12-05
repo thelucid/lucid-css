@@ -17,6 +17,10 @@
   line-height: size(subheading, rhythm);
   margin-bottom: size(subheading, trailer);
   font-weight: weight(subheading);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .c-subheading__link {
   color: inherit;
