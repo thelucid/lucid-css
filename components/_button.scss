@@ -43,12 +43,47 @@
   )
 ));
 
+@include sizes((
+  button: (
+    padding: (
+      horizontal: size(spacing, small) + size(spacing, tiny),
+      vertical: size(spacing, small)
+    ),
+    icon: (
+      extent: size(spacing) - 3px,
+      thickness: 2px
+    ),
+    small: (
+      padding: (
+        horizontal: size(spacing, small),
+        vertical: size(spacing, tiny)
+      ),
+      icon: (
+        extent: size(spacing, small),
+        thickness: 2
+      )
+    ),
+    large: (
+      padding: (
+        horizontal: size(spacing, huge),
+        vertical: size(spacing, small)
+      )
+    ),
+    bare: (
+      padding: (
+        horizontal: 0,
+        vertical: 0
+      )
+    )
+  )
+));
+
 .c-button {
   display: inline-block;
   border-radius: size(radius);
   color: palette(button, foreground);
   background: palette(button, background);
-  padding: size(spacing, small) size(spacing);
+  padding: size(button, padding, horizontal) size(button, padding, vertical);
   text-decoration: none;
   font-size: size(font, small);
   font-weight: weight(medium);
@@ -108,7 +143,102 @@
 .c-button--small {
   font-size: size(font, tiny);
   line-height: rhythm(1);
-  padding: size(spacing, tiny) size(spacing, small);
+  padding: size(button, small, padding, horizontal) size(button, small, padding, vertical);
+}
+
+.c-button--large {
+  font-size: size(font, medium);
+  line-height: rhythm(1);
+  padding: size(button, large, padding, horizontal) size(button, large, padding, vertical);
+}
+
+.c-button--add,
+.c-button--remove {
+  position: relative;
+  padding-left: size(button, padding, horizontal) +
+    size(spacing, small) + size(button, icon, extent);
+  &.c-button--small {
+    padding-left: size(button, small, padding, horizontal) +
+      size(spacing, small) + size(button, small, icon, extent);
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;   
+    background: palette(button, foreground);
+  }
+  &.c-button--ghost {
+    &:before,
+    &:after {
+      background: palette(button, ghost, foreground);
+    }
+  }
+  &.c-button--bare {
+    &:before,
+    &:after {
+      background: palette(button, bare, foreground);
+    }
+  }
+  &:before {
+    margin-top: size(button, icon, thickness) / -2;
+    left: size(button, padding, horizontal);
+    width: size(button, icon, extent);
+    height: size(button, icon, thickness);
+  }
+  &.c-button--small {
+    &:before {
+      margin-top: size(button, small, icon, thickness) / -2;
+      left: size(button, small, padding, horizontal);
+      width: size(button, small, icon, extent);
+      height: size(button, small, icon, thickness);
+    }
+  }
+  &:after {
+    margin-left: size(button, icon, thickness) / -2;
+    margin-top: - (size(button, icon, extent) / 2);
+    left: size(button, padding, horizontal) +
+      (size(button, icon, extent) / 2);
+    width: size(button, icon, thickness);
+    height: size(button, icon, extent);
+  }
+  &.c-button--small {
+    &:after {
+      margin-left: size(button, small, icon, thickness) / -2;
+      margin-top: - (size(button, small, icon, extent) / 2);
+      left: size(button, small, padding, horizontal) +
+        (size(button, small, icon, extent) / 2);
+      width: size(button, small, icon, thickness);
+      height: size(button, small, icon, extent);
+    }
+  }
+  &:hover {
+    &:before,
+    &:after {
+      background: palette(button, hover, foreground);
+    }
+  }
+  &.c-button--ghost {
+    &:hover {
+      &:before,
+      &:after {
+        background: palette(button, ghost, hover, foreground);
+      }
+    }
+  }
+  &.c-button--bare {
+    &:hover {
+      &:before,
+      &:after {
+        background: palette(button, bare, hover, foreground);
+      }
+    }
+  }
+}
+.c-button--remove {
+  &:after {
+    display: none;
+  }
 }
 
 .c-button--grow {
