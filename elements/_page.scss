@@ -16,6 +16,7 @@ html {
     font-family: stack();
   }
   font-size: size(font, base);
+  font-weight: weight(normal);
   line-height: rhythm(1);
   
   // Stop jumps between pages.
