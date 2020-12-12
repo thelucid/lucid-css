@@ -83,7 +83,7 @@
   border-radius: size(radius);
   color: palette(button, foreground);
   background: palette(button, background);
-  padding: size(button, padding, horizontal) size(button, padding, vertical);
+  padding: size(button, padding, vertical) size(button, padding, horizontal);
   text-decoration: none;
   font-size: size(font, small);
   font-weight: weight(medium);
