@@ -143,13 +143,13 @@
 .c-button--small {
   font-size: size(font, tiny);
   line-height: rhythm(1);
-  padding: size(button, small, padding, horizontal) size(button, small, padding, vertical);
+  padding: size(button, small, padding, vertical) size(button, small, padding, horizontal);
 }
 
 .c-button--large {
   font-size: size(font, medium);
   line-height: rhythm(1);
-  padding: size(button, large, padding, horizontal) size(button, large, padding, vertical);
+  padding: size(button, large, padding, vertical) size(button, large, padding, horizontal);
 }
 
 .c-button--add,
