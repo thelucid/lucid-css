@@ -33,7 +33,7 @@
 
 @include palettes((
   foreground: (
-    tint: tint(palette(foreground), 80%),
+    tint: tint(palette(foreground), 81%),
     light: tint(palette(foreground), 26%),
     dark: shade(palette(foreground), 25%)
   ),
