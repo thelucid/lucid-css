@@ -33,8 +33,8 @@
 
 @include palettes((
   foreground: (
-    tint: tint(palette(foreground), 75%),
-    light: tint(palette(foreground), 25%),
+    tint: tint(palette(foreground), 80%),
+    light: tint(palette(foreground), 26%),
     dark: shade(palette(foreground), 25%)
   ),
   panel: (
