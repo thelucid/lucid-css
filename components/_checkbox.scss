@@ -14,58 +14,60 @@
 
 @include sizes((
   checkbox: (
+    extent: size(spacing),
     label: (
-      font-size: size(font, small),
-      font-weight: weight(normal)
+      trailer: .3em
     )
   )
 ));
 
+.c-checkbox {
+  position: relative;
+  padding-left: size(checkbox, extent) + size(spacing, small);
+  margin-bottom: - size(checkbox, label, trailer);
+}
 .c-checkbox__control {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 .c-checkbox__label {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  font-weight: size(checkbox, label, font-weight);
-  font-size: size(checkbox, label, font-size);
-  padding-left: size(spacing) + size(spacing, small);
+  position: static;
+  top: initial;
+  margin-bottom: size(checkbox, label, trailer);
   
-  &:before {
+  &:before, &:after {
     content: '';
     display: block;
     position: absolute;
-    left: 0;
+  }
+  
+  &:before {
     top: 0;
+    left: 0;
+    width: size(checkbox, extent);
+    height: size(checkbox, extent);
     border-radius: size(radius);
     background: palette(checkbox, background);
     box-shadow: inset 0 0 0 1px palette(checkbox, border),
-                0 size(shadow) 0 palette(checkbox, shadow);
-    width: size(spacing);
-    height: size(spacing);
+                0 1px 0 palette(checkbox, shadow);
     
     .c-checkbox__control:checked + & {
       background: palette(checkbox, checked, background);
       box-shadow: inset 0 0 0 1px palette(checkbox, checked, border),
-                  0 size(shadow) 0 palette(checkbox, shadow);
+                  0 1px 0 palette(checkbox, shadow);
     }
   }
   &:after {
     .c-checkbox__control:checked + & {
-      content: '';
-      display: block;
-      position: absolute;
+      top: size(checkbox, extent) / 2;
+      left: size(checkbox, extent) / 2;
+      width: size(checkbox, extent) * .3;
+      height: size(checkbox, extent) * .6;
+      margin-left: size(checkbox, extent) * -.15;
+      margin-top: size(checkbox, extent) * -.37;
       transform: rotate(45deg);
       box-shadow: inset -2px -2px 0 palette(checkbox, checked, foreground);
-      top: rhythm(.5);
-      left: rhythm(.5);
-      width: rhythm(.3);
-      height: rhythm(.6);
-      margin-left: rhythm(-.15);
-      margin-top: rhythm(-.35);
     }
   }
 }

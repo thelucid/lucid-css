@@ -6,20 +6,30 @@
 
 @include sizes((
   label: (
-    font-size: size(font, small),
-    font-weight: weight(bold),
-    vertical-shift: -.3em
+    font: size(font, small),
+    shift: (
+      vertical: -.3em
+    ) 
   )
+));
+
+@include weights((
+  label: weight(bold)
 ));
 
 .c-label {
   display: inline-block;
   position: relative;
+  cursor: pointer;
   // Shift to top of rhythm row.
-  top: size(label, vertical-shift);  
+  top: size(label, shift, vertical);
   color: palette(label, foreground);
-  font-weight: size(label, font-weight);
-  font-size: size(label, font-size);
+  font-weight: weight(label);
+  font-size: size(label, font);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 // For when it's next to an input--auto.
