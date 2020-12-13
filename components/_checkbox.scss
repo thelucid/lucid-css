@@ -16,7 +16,7 @@
   checkbox: (
     extent: size(spacing),
     label: (
-      trailer: .3em
+      trailer: .25em
     )
   )
 ));
@@ -32,8 +32,8 @@
   opacity: 0;
 }
 .c-checkbox__label {
-  position: static;
-  top: initial;
+  // Designed to override '.c-label', which is relative.
+  position: static !important;
   margin-bottom: size(checkbox, label, trailer);
   
   &:before, &:after {
